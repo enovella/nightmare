@@ -11,7 +11,10 @@ import sys
 import json
 import base64
 import tempfile
-import ConfigParser
+try:
+  import ConfigParser
+except:
+  import configparser
 
 from multiprocessing import Process, cpu_count
 
@@ -48,7 +51,10 @@ class CGenericFuzzer:
     if not os.path.exists(self.cfg):
       raise Exception("Invalid configuration file given")
 
-    parser = ConfigParser.SafeConfigParser()
+    try:
+      parser = ConfigParser.SafeConfigParser()
+    except:
+      parser = configParser.SafeConfigParser()
     parser.optionxform = str
     parser.read(self.cfg)
 
@@ -75,7 +81,6 @@ class CGenericFuzzer:
     try:
       self.tube_name = parser.get(self.section, 'tube')
     except:
-      raise
       raise Exception("No tube specified in the configuration file for section %s" % self.section)
 
     try:
@@ -270,15 +275,15 @@ def main(cfg, section):
       fuzzer = CGenericFuzzer(cfg, section)
       fuzzer.fuzz()
     except:
-      print "Error:", sys.exc_info()[1]
+      print("Error:", sys.exc_info()[1])
 
 #-----------------------------------------------------------------------
 def usage():
-  print "Usage:", sys.argv[0], "<config file> <fuzzer>"
-  print
-  print "Environment variables:"
-  print "NIGHTMARE_PROCESSES     Number of processes to run at the same time"
-  print
+  print("Usage:", sys.argv[0], "<config file> <fuzzer>")
+  print()
+  print("Environment variables:")
+  print("NIGHTMARE_PROCESSES     Number of processes to run at the same time")
+  print()
 
 if __name__ == "__main__":
   if len(sys.argv) != 3:
