@@ -42,7 +42,7 @@ def main(path, number, output):
 
 #-----------------------------------------------------------------------
 def usage():
-  print "Usage:", sys.argv[0], "samples_path #samples output_zip"
+  print("Usage:", sys.argv[0], "samples_path #samples output_zip")
 
 if __name__ == "__main__":
   if len(sys.argv) != 4:

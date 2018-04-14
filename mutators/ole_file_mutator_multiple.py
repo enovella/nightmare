@@ -25,7 +25,7 @@ class CMultipleOleFileMutator:
     with zipfile.ZipFile(self.output_zip, "w") as fuzz_zip:
       fuzz_zip.comment = "NIGHTMARE"
       i = 0
-      
+
       max_tries = self.total*2
       tries = 0
       while i < self.total:
@@ -39,12 +39,12 @@ class CMultipleOleFileMutator:
           if os.path.isfile(template):
             break
           continue
-        
+
         try:
           replacer(template, name)
           i += 1
         except:
-          print "Error with OLE2 %s:" % template, sys.exc_info()[1]
+          print("Error with OLE2 %s:" % template, sys.exc_info()[1])
           # Some error occurred reading the suppossed OLE2 file, remove
           # temporary files and retry again...
 
@@ -53,9 +53,9 @@ class CMultipleOleFileMutator:
             os.remove(name + ".diff")
           os.remove(name)
           continue
-        
+
         fuzz_zip.write(name)
-        
+
         # Add also the .diff file if it was created:
         if os.path.exists(name + ".diff"):
           fuzz_zip.write(name + ".diff")
@@ -69,7 +69,7 @@ def main(path, number, output):
 
 #-----------------------------------------------------------------------
 def usage():
-  print "Usage:", sys.argv[0], "samples_path #samples output_zip"
+  print("Usage:", sys.argv[0], "samples_path #samples output_zip")
 
 if __name__ == "__main__":
   if len(sys.argv) != 4:

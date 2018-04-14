@@ -30,7 +30,7 @@ class CMelkorMutator:
     base_dir = os.path.join(tmpdir, "orcs_%s" % base_file)
     filename = os.path.join(base_dir, "Report_%s.txt" % base_file)
     additional = open(filename, "rb").readlines()
-    
+
     filename = os.path.join(base_dir, "orc_0001")
     return open(filename, "rb").read(), additional
 
@@ -60,7 +60,7 @@ class CMelkorMutator:
         f.write("# %s\n" % line)
       f.close()
     except:
-      print "Exception: %s" % sys.exc_info()[1]
+      print("Exception: %s" % sys.exc_info()[1])
     finally:
       rmtree(tmpdir)
 
@@ -71,7 +71,7 @@ def main(input_file, output_file):
 
 #-----------------------------------------------------------------------
 def usage():
-  print "Usage:", sys.argv[0], "<input file> <output file>"
+  print("Usage:", sys.argv[0], "<input file> <output file>")
 
 if __name__ == "__main__":
   if len(sys.argv) != 3:

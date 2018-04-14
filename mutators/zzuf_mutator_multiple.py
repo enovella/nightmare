@@ -32,10 +32,10 @@ class CMultipleZzufMutator:
           if os.path.isfile(template):
             break
           continue
-        
+
         zzuf_replace(template, name)
         fuzz_zip.write(name)
-        
+
         # Add also the .diff file if it was created:
         if os.path.exists(name + ".diff"):
           fuzz_zip.write(name + ".diff")
@@ -49,7 +49,7 @@ def main(path, number, output):
 
 #-----------------------------------------------------------------------
 def usage():
-  print "Usage:", sys.argv[0], "samples_path #samples output_zip"
+  print("Usage:", sys.argv[0], "samples_path #samples output_zip")
 
 if __name__ == "__main__":
   if len(sys.argv) != 4:

@@ -14,7 +14,7 @@ import random
 class CSimpleReplacer:
   def __init__(self, input):
     self.input = input
-  
+
   def replace(self, output):
     buf = open(self.input, "rb").read()
 
@@ -27,7 +27,7 @@ class CSimpleReplacer:
       place = random.randint(20, len(buf))
     else:
       place = random.randint(0, len(buf))
-    
+
     # Randomly select the maximum size to replace from a maximum of 256
     # bytes
     size = random.randint(1, 256)
@@ -51,7 +51,7 @@ def main(input_file, output_file):
 
 #-----------------------------------------------------------------------
 def usage():
-  print "Usage:", sys.argv[0], "<input file> <output file>"
+  print("Usage:", sys.argv[0], "<input file> <output file>")
 
 if __name__ == "__main__":
   if len(sys.argv) != 3:

@@ -46,7 +46,7 @@ class CMachoFuzzer:
     self.macho = None
     self.fuzz_properties = ["headers"]
     self.fuzz_sub_properties = {"headers":["header", "commands", "headers"]}
-    
+
     self.changes = []
     self.change_list = []
 
@@ -60,7 +60,7 @@ class CMachoFuzzer:
     if prop == "header":
       fields = random.choice(header.header._fields_)
       field = fields[0]
-      
+
       change_name = "header %d field %s" % (idx, field)
       if change_name in self.change_list or field in BANNED_FIELDS:
         #print "Ignoring already applied change %s" % change_name
@@ -70,13 +70,13 @@ class CMachoFuzzer:
       self.changes[len(self.changes)-1].append("Field %s" % field)
       l = "header.header.%s = %d" % (field, get_random_value(fields[1]))
       exec(l)
-      
+
       self.change_list.append(change_name)
     elif prop == "commands":
       cmd = random.choice(header.commands)
       idx = header.commands.index(cmd)
       self.changes[len(self.changes)-1].append("Command %d" % idx)
-      
+
       subidx = random.randint(0, len(cmd)-1)
       subcmd = cmd[subidx]
 
@@ -94,13 +94,13 @@ class CMachoFuzzer:
             #print "Ignoring unsupported field type", str_type, field
             del self.changes[len(self.changes)-1]
         else:
-          print "Ignoring empty subcmd", subcmd
+          print("Ignoring empty subcmd", subcmd)
           del self.changes[len(self.changes)-1]
       elif type(subcmd) is str:
         #print "Ignoring unsupported (by macholib) string sub-command"
         del self.changes[len(self.changes)-1]
       else:
-        print type(subcmd), subcmd
+        print(type(subcmd), subcmd)
         if type(subcmd) is list and len(subcmd) > 0:
           field = random.choice(subcmd)
           subidx = subcmd.index(field)
@@ -125,7 +125,7 @@ class CMachoFuzzer:
 
   def do_fuzz_internal(self):
     assert(self.macho is not None)
-    
+
     element = random.choice(self.fuzz_properties)
     if element == "headers":
       self.do_fuzz_headers()
@@ -155,15 +155,15 @@ class CMachoFuzzer:
     f = open(output_filename + ".diff", "wb")
     f.write("# Original file created by 'MachO Mutator' was %s\n" % filename)
     for change in self.changes:
-      print "# CHANGE: %s" % ", ".join(change)
+      print("# CHANGE: %s" % ", ".join(change))
       f.write("# CHANGE: %s\n" % ", ".join(change))
     f.close()
-    
+
     os.system("radiff2 %s %s" % (filename, output_filename))
 
 #-----------------------------------------------------------------------
 def usage():
-  print "Usage:", sys.argv[0], "<input file> <output file>"
+  print("Usage:", sys.argv[0], "<input file> <output file>")
 
 #-----------------------------------------------------------------------
 def main(input_file, output_file):

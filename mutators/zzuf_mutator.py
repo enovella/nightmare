@@ -52,7 +52,7 @@ def main(input_file, output_file):
 
 #-----------------------------------------------------------------------
 def usage():
-  print "Usage:", sys.argv[0], "<input file> <output file>"
+  print("Usage:", sys.argv[0], "<input file> <output file>")
 
 if __name__ == "__main__":
   if len(sys.argv) != 3:

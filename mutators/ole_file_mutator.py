@@ -32,14 +32,14 @@ class COleFileIOReplacer:
 
   def mutate_data(self, data):
     filename = tempfile.mktemp()
-    
+
     try:
       with open(filename, "wb") as f:
         f.write(data)
-      
+
       new_buf = check_output(["radamsa", filename])
     except:
-      print "*** Error getting output from radamsa?", sys.exc_info()[1]
+      print("*** Error getting output from radamsa?", sys.exc_info()[1])
       os.remove(filename)
     finally:
       os.remove(filename)
@@ -52,7 +52,7 @@ class COleFileIOReplacer:
     return new_buf
 
   def replace(self, output):
-    # Create a copy of the input file, we need it because of how the 
+    # Create a copy of the input file, we need it because of how the
     # library OleFileIO_PL works
     shutil.copyfile(self.input, output)
 
@@ -98,7 +98,7 @@ def main(input_file, output_file):
 
 #-----------------------------------------------------------------------
 def usage():
-  print "Usage:", sys.argv[0], "<input file> <output file>"
+  print("Usage:", sys.argv[0], "<input file> <output file>")
 
 if __name__ == "__main__":
   if len(sys.argv) != 3:

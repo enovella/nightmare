@@ -32,18 +32,18 @@ class CMultipleMelkorMutator:
           if os.path.isfile(template):
             break
           continue
-        
+
         melkor_replace(template, name)
         try:
           fuzz_zip.write(name)
-          
+
           # Add also the .diff file if it was created:
           if os.path.exists(name + ".diff"):
             fuzz_zip.write(name + ".diff")
             os.remove(name + ".diff")
           os.remove(name)
         except:
-          print "Error:", sys.exc_info()[1]
+          print("Error:", sys.exc_info()[1])
 
 #-----------------------------------------------------------------------
 def main(path, number, output):
@@ -52,7 +52,7 @@ def main(path, number, output):
 
 #-----------------------------------------------------------------------
 def usage():
-  print "Usage:", sys.argv[0], "samples_path #samples output_zip"
+  print("Usage:", sys.argv[0], "samples_path #samples output_zip")
 
 if __name__ == "__main__":
   if len(sys.argv) != 4:
