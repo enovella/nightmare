@@ -117,19 +117,19 @@ def main(mode, cfg, section, template, crash, diff, output=None):
     minimizer = CHtmlMinimizer(cfg, section)
     minimizer.minimize(template, output)
   else:
-    print "Unknown mode '%s'" % mode
+    print("Unknown mode '%s'" % mode)
 
 #-----------------------------------------------------------------------
 def usage():
-  print "Usage:", sys.argv[0], "<mode> <config file> <section> <template file> [<crashing file> <diff file>] <output directory>"
-  print
+  print("Usage:", sys.argv[0], "<mode> <config file> <section> <template file> [<crashing file> <diff file>] <output directory>")
+  print()
   if html_support:
-    print "The value for 'mode' is either 'line', 'generic' or 'html'."
+    print("The value for 'mode' is either 'line', 'generic' or 'html'.")
   else:
-    print "The value for 'mode' is either 'line' or 'generic'."
-  print "The value for 'diff file' is only used for the 'generic' mode."
-  print
-  print "The 'generic' minimizer is meant to be used with Nightmare's mutators that output a .diff file."
+    print("The value for 'mode' is either 'line' or 'generic'.")
+  print("The value for 'diff file' is only used for the 'generic' mode.")
+  print()
+  print("The 'generic' minimizer is meant to be used with Nightmare's mutators that output a .diff file.")
 
 if __name__ == "__main__":
   if len(sys.argv) < 6:
