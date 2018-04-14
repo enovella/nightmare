@@ -33,7 +33,7 @@ class CProgramWrapper:
 
     self.output_callback = None
     self.timeout_callback = None
-    
+
     self.do_run = True
 
   def set_output_callback(self, cb):
@@ -53,7 +53,7 @@ class CProgramWrapper:
     self.q = q
     self.p = p
     self.t = t
-    
+
     self.loop()
 
   def read_line(self):
@@ -101,7 +101,7 @@ class CGdbWrapper:
     self.wrapper = CProgramWrapper()
     self.inited = False
     self.started = False
-    
+
     self.exit_callback = None
     self.exception_callback = None
 
@@ -153,7 +153,7 @@ class CGdbWrapper:
   def run(self, args):
     self.wrapper.do_run = True
     self.send_command("r %s" % " ".join(args))
-  
+
   def loop(self):
     self.wrapper.loop()
 

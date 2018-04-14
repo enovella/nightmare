@@ -6,7 +6,7 @@
 command=/usr/bin/readelf -a
 # Base tube name
 basetube=readelf
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -25,7 +25,7 @@ environment=common-environment
 command=/home/joxean/devel/libressl/libressl-2.0.0/apps/openssl asn1parse -in
 # Base tube name
 basetube=openssl
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -42,7 +42,7 @@ timeout=60
 command=/home/joxean/devel/openssl/openssl-1.0.1g/apps/openssl asn1parse -in
 # Base tube name
 basetube=openssl
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -64,7 +64,7 @@ MALLOC_CHECK_=2
 command=/home/joxean/devel/mozjs/mozjs-24.2.0/js/src/js24
 # Base tube name
 basetube=mozjs
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -86,7 +86,7 @@ MALLOC_CHECK_=2
 command=/home/joxean/ida-6.6/idal64 -A -B -c
 # Base tube name
 basetube=ida
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -110,7 +110,7 @@ MALLOC_CHECK_=2
 command=/home/joxean/devel/v8/out/ia32.debug/d8
 # Base tube name
 basetube=v8
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -127,7 +127,7 @@ timeout=60
 command=/home/joxean/devel/expat/expat/examples/python-expat.py
 # Base tube name
 basetube=pyexpat
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -152,7 +152,7 @@ MALLOC_CHECK_=2
 command=/home/joxean/devel/expat/2.0.1/expat-2.0.1/examples/outline
 # Base tube name
 basetube=expat
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -173,7 +173,7 @@ environment=wps-environment
 command=/usr/local/bin/rabin2 -H
 # Base tube name
 basetube=radare
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -194,7 +194,7 @@ environment=wps-environment
 command=/home/joxean/devel/libxml2/.libs/lt-xmllint --noout
 # Base tube name
 basetube=libxml2
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -225,7 +225,7 @@ server-gid=0
 pre-command=killall -9 avast
 # Base tube name
 basetube=avast
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -242,7 +242,7 @@ timeout=25920000
 command=/home/joxean/devel/kingsoft_office/kingsoft-office_9.1.0.4280~a12p4_x86/office6/wpp
 # Base tube name
 basetube=wpp
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -263,7 +263,7 @@ environment=wps-environment
 command=/home/joxean/devel/kingsoft_office/kingsoft-office_9.1.0.4280~a12p4_x86/office6/et
 # Base tube name
 basetube=et
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -284,7 +284,7 @@ environment=wps-environment
 command=/home/joxean/devel/kingsoft_office/kingsoft-office_9.1.0.4280~a12p4_x86/office6/wps
 # Base tube name
 basetube=wps
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -308,7 +308,7 @@ DISPLAY=:1
 command=/home/joxean/devel/yara/install/bin/yara
 # Base tube name
 basetube=yara
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -325,7 +325,7 @@ timeout=15
 command=/home/joxean/devel/go/go/bin/go run
 # Base tube name
 basetube=go
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -342,7 +342,7 @@ timeout=15
 command=/home/joxean/devel/perl/install/bin/perl
 # Base tube name
 basetube=pl
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -359,7 +359,7 @@ timeout=15
 command=/home/joxean/devel/lua/src/lua-5.2.0/src/lua
 # Base tube name
 basetube=lua
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -376,7 +376,7 @@ timeout=15
 command=/usr/bin/php5
 # Base tube name
 basetube=php
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -393,7 +393,7 @@ timeout=15
 command=/usr/bin/ruby
 # Base tube name
 basetube=rb
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -410,7 +410,7 @@ timeout=15
 command=/usr/bin/python3.2
 # Base tube name
 basetube=python32
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -427,7 +427,7 @@ timeout=15
 command=/usr/bin/python
 # Base tube name
 basetube=python
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -444,7 +444,7 @@ timeout=15
 command=/home/joxean/devel/fprot/f-prot/fpscan -r -v 0
 # Base tube name
 basetube=fprot
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -461,7 +461,7 @@ timeout=90
 command=/home/joxean/devel/avast/avast4workstation-1.3.0/lib/avast4workstation/bin/avast -t A -n
 # Base tube name
 basetube=avast
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -485,10 +485,10 @@ MALLOC_CHECK_=3
 #-----------------------------------------------------------------------
 [Comodo]
 # Command line to launch it
-command=/opt/COMODO/cmdscan -s 
+command=/opt/COMODO/cmdscan -s
 # Base tube name
 basetube=comodo
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -510,7 +510,7 @@ MALLOC_CHECK_=3
 command=/usr/bin/clamscan --quiet
 # Base tube name
 basetube=clamav
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -532,7 +532,7 @@ MALLOC_CHECK_=3
 command=/usr/bin/bdscan --no-list
 # Base tube name
 basetube=bitdefender
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -554,7 +554,7 @@ MALLOC_CHECK_=3
 command=/usr/bin/evince
 # Base tube name
 basetube=evince-pdf
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -578,7 +578,7 @@ MALLOC_CHECK_=3
 command = /usr/lib/libreoffice/program/soffice.bin --norestore -o --nolockcheck --nologo --nocrashreport --headless
 # Base tube name
 basetube=libreoffice-doc
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -595,7 +595,7 @@ LD_PRELOAD=/home/joxean/Documentos/research/nightmare/fuzzers/libsignal64.so
 
 #-----------------------------------------------------------------------
 # Configuration for AVG AV
-# NOTE: IT DOESN'T WORK UNLESS WE FOLLOW CHILDS AND THE SUCKER SENDS 
+# NOTE: IT DOESN'T WORK UNLESS WE FOLLOW CHILDS AND THE SUCKER SENDS
 # DAMN CRASH REPORTS TO HOME WITHOUT ASKING FOR SHIT!
 #-----------------------------------------------------------------------
 [AVG]
@@ -603,7 +603,7 @@ LD_PRELOAD=/home/joxean/Documentos/research/nightmare/fuzzers/libsignal64.so
 command=/opt/avg/av/bin/avgscan -i -j -a
 # Base tube name
 basetube=avg
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -624,10 +624,10 @@ LD_LIBRARY_PATH=/opt/avg/av/lib/
 #-----------------------------------------------------------------------
 [F-Secure]
 # Command line to launch it
-command=/opt/f-secure/fssp/bin/fsav --virus-action1=report --virus-action2=report --silent --standalone --archive=on 
+command=/opt/f-secure/fssp/bin/fsav --virus-action1=report --virus-action2=report --silent --standalone --archive=on
 # Base tube name
 basetube=fsecure
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -646,10 +646,10 @@ MALLOC_CHECK_=3
 #-----------------------------------------------------------------------
 [McAfee]
 # Command line to launch it
-command=/home/joxean/devel/mcafee/uvscan --ANALYZE --MANALYZE  --MACRO-HEURISTICS --RECURSIVE --SHOWCOMP --UNZIP 
+command=/home/joxean/devel/mcafee/uvscan --ANALYZE --MANALYZE  --MACRO-HEURISTICS --RECURSIVE --SHOWCOMP --UNZIP
 # Base tube name
 basetube=mcafee
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -669,10 +669,10 @@ MALLOC_CHECK_=3
 #-----------------------------------------------------------------------
 [DrWeb]
 # Command line to launch it
-command=/opt/drweb/drweb.real -oq 
+command=/opt/drweb/drweb.real -oq
 # Base tube name
 basetube=drweb
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -691,10 +691,10 @@ MALLOC_CHECK_=3
 #-----------------------------------------------------------------------
 [ESET]
 # Command line to launch it
-command=/opt/eset/esets/sbin/esets_scan --clean-mode=NONE --log-all 
+command=/opt/eset/esets/sbin/esets_scan --clean-mode=NONE --log-all
 # Base tube name
 basetube=eset
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash
@@ -716,7 +716,7 @@ MALLOC_CHECK_=3
 command=/usr/local/bin/sweep -all -archive -mime -oe -tnef
 # Base tube name
 basetube=sophos
-# The tube the fuzzer will use to pull of samples 
+# The tube the fuzzer will use to pull of samples
 tube=%(basetube)s-samples
 # The tube the fuzzer will use to record crashes
 crash-tube=%(basetube)s-crash

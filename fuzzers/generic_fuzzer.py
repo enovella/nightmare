@@ -37,7 +37,7 @@ class CGenericFuzzer:
     self.cfg = cfg
     self.section = section
     self.read_configuration()
-  
+
     self.q = get_queue(name=self.tube_name, watch=True)
     self.delete_q = get_queue(name="delete", watch=False)
     self.crash_q = get_queue(name=self.crash_tube, watch=False)
@@ -54,7 +54,7 @@ class CGenericFuzzer:
 
     if self.section not in parser.sections():
       raise Exception("Section %s does not exist in the given configuration file" % self.section)
-    
+
     try:
       self.pre_command = parser.get(self.section, 'pre-command')
     except:
@@ -71,7 +71,7 @@ class CGenericFuzzer:
       self.command = parser.get(self.section, 'command')
     except:
       raise Exception("No command specified in the configuration file for section %s" % self.section)
-    
+
     try:
       self.tube_name = parser.get(self.section, 'tube')
     except:
@@ -82,29 +82,29 @@ class CGenericFuzzer:
       self.crash_tube = parser.get(self.section, 'crash-tube')
     except:
       self.crash_tube = "%s-crash" % self.tube_name
-    
+
     try:
       self.extension = parser.get(self.section, 'extension')
     except:
       raise Exception("No extension specified in the configuration file for section %s" % self.section)
-    
+
     try:
       self.timeout = parser.get(self.section, 'timeout')
     except:
       # Default timeout is 90 seconds
       self.timeout = 90
-    
+
     try:
       environment = parser.get(self.section, 'environment')
       self.env = dict(parser.items(environment))
     except:
       self.env = {}
-    
+
     try:
       self.cleanup = parser.get(self.section, 'cleanup-command')
     except:
       self.cleanup = None
-    
+
     try:
       is_debug = parser.getboolean(self.section, 'debug')
       config.DEBUG = is_debug
@@ -180,7 +180,7 @@ class CGenericFuzzer:
     return crash
 
   def launch_sample(self, buf):
-    # Re-read configuration each time we're running the fuzzer so the 
+    # Re-read configuration each time we're running the fuzzer so the
     # new changes are immediately applied.
     self.read_configuration()
 
@@ -239,13 +239,13 @@ class CGenericFuzzer:
       else:
         file_delete = os.path.basename(temp_file)
         self.delete_q.put(str(file_delete))
-      
+
       if self.cleanup is not None:
         debug("Running clean-up command %s" % self.cleanup)
         os.system(self.cleanup)
         debug("Done")
       job.delete()
-      
+
       if self.iface == gdb_iface:
         break
 

@@ -5,7 +5,7 @@
 Nightmare Fuzzing Project blind coverage fuzzer
 @author: joxean
 @description: Blind Coverage Fuzzer for Unix/Linux based on DynamoRIO
-drcov tool. It's based on a greedy algorithm so don't expect it to 
+drcov tool. It's based on a greedy algorithm so don't expect it to
 generate "stellar" results.
 """
 
@@ -70,15 +70,15 @@ class CBlindCoverageFuzzer:
     # Maximum number of bytes to mutate per each try
     self.max_size = random.randint(1, 8)
     log("Selected a maximum size of %d change(s) to apply" % self.max_size)
-    
+
     # Only for the iterative mutator
     self.stats["iteration"] = 0
     self.stats["iteration_char"] = 0
-    
+
     self.generations = self.mgr.list()
     self.generation_value = 0
     self.max_generations = 10
-    
+
     self.bugs = 0
 
   def read_configuration(self):
@@ -94,7 +94,7 @@ class CBlindCoverageFuzzer:
     self.read_fuzzer_configuration(parser)
 
   def read_fuzzer_configuration(self, parser):
-    """ Read this specific fuzzer additional configuration options from 
+    """ Read this specific fuzzer additional configuration options from
         the config file instead of adding a gazilion command line
         options. """
     section = "BCF"
@@ -143,7 +143,7 @@ class CBlindCoverageFuzzer:
       self.command = parser.get(self.section, 'command')
     except:
       raise Exception("No command specified in the configuration file for section %s" % self.section)
-    
+
     try:
       self.tube_name = parser.get(self.section, 'tube')
     except:
@@ -154,7 +154,7 @@ class CBlindCoverageFuzzer:
       self.crash_tube = parser.get(self.section, 'crash-tube')
     except:
       self.crash_tube = "%s-crash" % self.tube_name
-    
+
     try:
       self.extension = parser.get(self.section, 'extension')
     except:
@@ -172,19 +172,19 @@ class CBlindCoverageFuzzer:
       self.env = dict(parser.items(environment))
     except:
       self.env = {}
-    
+
     try:
       self.cleanup = parser.get(self.section, 'cleanup-command')
     except:
       self.cleanup = None
-    
+
     try:
       self.iterative = parser.getboolean(self.section, 'iterative')
       if self.iterative:
         debug("Iterative algorithm in use")
     except:
       self.iterative = False
-    
+
     try:
       self.save_generations = parser.getboolean(self.section, 'save-generations')
     except:
@@ -229,7 +229,7 @@ class CBlindCoverageFuzzer:
       self.skip_bytes = parser.getint(self.section, 'skip-bytes')
     except:
       self.skip_bytes = 4
-    
+
     try:
       self.non_uniques = parser.getboolean(self.section, 'non-uniques')
     except:
@@ -249,7 +249,7 @@ class CBlindCoverageFuzzer:
     cov_data = cov_tool.coverage(command=cmd_line, timeout=self.timeout, hide_output=self.hide_output)
     l.append(cov_data)
 
-  def record_metrics(self, input_file):    
+  def record_metrics(self, input_file):
     mgr = Manager()
     metrics_data = mgr.list()
 
@@ -263,7 +263,7 @@ class CBlindCoverageFuzzer:
         for p in procs:
           p.join()
         procs = []
-    
+
     for p in procs:
       p.join()
 
@@ -279,7 +279,7 @@ class CBlindCoverageFuzzer:
     self.stats["avg"] = reduce(lambda x, y: x + y, l) / float(len(l))
 
     self.original_stats = dict(self.stats)
-    
+
     self.print_statistics()
 
   def print_statistics(self):
@@ -383,7 +383,7 @@ class CBlindCoverageFuzzer:
 
     buf = bytearray(template)
 
-    # Let's flip a coin to choose if we are going to put in the same 
+    # Let's flip a coin to choose if we are going to put in the same
     # offset as the template file or in a random location
     if random.randint(0, 1) == 1 and offset+size < len(chunk):
       offset = random.randint(0, len(chunk)-offset+size)
@@ -400,7 +400,7 @@ class CBlindCoverageFuzzer:
       if len(buf)-size>self.skip_bytes:
         offset = random.randint(self.skip_bytes, len(buf)-size)
       else:
-        offset = self.skip_bytes 
+        offset = self.skip_bytes
 
       values = []
       for i in range(size):
@@ -422,7 +422,7 @@ class CBlindCoverageFuzzer:
     file_hash = sha1(buf).hexdigest()
     log("Output path configured to %s" % self.output)
     filename = os.path.join(self.output, file_hash)
-    
+
     f = open(filename, "wb")
     f.write(buf)
     f.close()
@@ -443,7 +443,7 @@ class CBlindCoverageFuzzer:
       if len(self.generations) >= self.max_generations:
         del self.generations[0]
       self.generations.append([bytearray(self.template), dict(self.stats), self.generation_value])
-      
+
       if self.save_generations and buf != "":
         file_hash = sha1(buf).hexdigest()
         ext = os.path.splitext(self.input_file)[1]
@@ -495,8 +495,8 @@ class CBlindCoverageFuzzer:
     try:
       self.fuzz_one_internal(template)
     except KeyboardInterrupt:
-      print "Aborted."
-  
+      print("Aborted.")
+
   def recalculate_statistics(self, old_stats, bbs):
     self.stats["max"] = bbs
     self.stats["min"] = old_stats["max"]
@@ -603,8 +603,8 @@ class CBlindCoverageFuzzer:
         loaded = True
       except:
         log("Error loading saved state: %s" % sys.exc_info()[1])
-    
-    if not loaded:  
+
+    if not loaded:
       log("Recording a total of %d value(s) of coverage..." % self.metrics)
       if self.is_dir:
         # As the initial template, use the first file we discover
@@ -650,9 +650,9 @@ class CBlindCoverageFuzzer:
 
 #-----------------------------------------------------------------------
 def usage():
-  print "Usage:", sys.argv[0], "(32|64) <config file> <section> <input_file> <output directory> [<max iterations>]"
-  print
-  print "The first argument to", sys.argv[0], "is the architecture, 32bit or 64bit."
+  print("Usage:", sys.argv[0], "(32|64) <config file> <section> <input_file> <output directory> [<max iterations>]")
+  print()
+  print("The first argument to", sys.argv[0], "is the architecture, 32bit or 64bit.")
 
 #-----------------------------------------------------------------------
 def main(arch, cfg, section, input_file, output, max_iterations=0):
@@ -675,7 +675,7 @@ def main(arch, cfg, section, input_file, output, max_iterations=0):
     else:
       log("Failed to maximize input file :(")
   except KeyboardInterrupt:
-    print "Aborted."
+    print("Aborted.")
 
 if __name__ == "__main__":
   if len(sys.argv) == 6:

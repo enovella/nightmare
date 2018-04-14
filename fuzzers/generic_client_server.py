@@ -38,7 +38,7 @@ class CClientServerFuzzer(CGenericFuzzer):
     self.server_gid = 0
     self.client_uid  = 1000
     self.client_gid = 1000
-    
+
     # This is the server process
     self.p = None
     self.crash_info = None
@@ -151,7 +151,7 @@ class CClientServerFuzzer(CGenericFuzzer):
     else:
       file_delete = os.path.basename(temp_file)
       self.delete_q.put(str(file_delete))
-    
+
     if self.cleanup is not None:
       debug("Running clean-up command %s" % self.cleanup)
       os.system(self.cleanup)
