@@ -16,7 +16,11 @@ import time
 import json
 import base64
 import tempfile
-import ConfigParser
+
+try:
+  import ConfigParser
+except:
+  import configparser
 
 from multiprocessing import Process, Queue
 
@@ -47,7 +51,11 @@ class CClientServerFuzzer(CGenericFuzzer):
   def read_configuration(self):
     CGenericFuzzer.read_configuration(self)
 
-    parser = ConfigParser.SafeConfigParser()
+    try:
+      parser = ConfigParser.SafeConfigParser()
+    except:
+      parser = configParser.SafeConfigParser()
+
     parser.optionxform = str
     parser.read(self.cfg)
 
@@ -186,7 +194,7 @@ def main(cfg, fuzzer):
 
 #-----------------------------------------------------------------------
 def usage():
-  print "Usage:", sys.argv[0], "<config file> <fuzzer>"
+  print("Usage:", sys.argv[0], "<config file> <fuzzer>")
 
 if __name__ == "__main__":
   if len(sys.argv) != 3:

@@ -106,7 +106,7 @@ class CGdbWrapper:
     self.exception_callback = None
 
   def output_callback(self, w, line, stdin):
-    print line.strip("\r").strip("\n")
+    print(line.strip("\r").strip("\n"))
     if not self.inited and not self.started:
       self.inited = True
       w.do_run = False
@@ -145,7 +145,7 @@ class CGdbWrapper:
     self.wrapper.p.stdin.write("%s\n" % arg)
     time.sleep(0.1)
     if loop:
-      print self.wrapper.loop_until_empty()
+      print(self.wrapper.loop_until_empty())
 
   def read_answer(self):
     return self.wrapper.read_until_empty()
@@ -159,7 +159,7 @@ class CGdbWrapper:
 
 #-----------------------------------------------------------------------
 def exit_callback(gdb, line):
-  print "EXIT", gdb, line
+  print("EXIT", gdb, line)
 
 #-----------------------------------------------------------------------
 def exception_callback(gdb, signal, line):
@@ -167,9 +167,12 @@ def exception_callback(gdb, signal, line):
   print(gdb, line)
   gdb.send_command("back", loop=False)
   answer = gdb.read_answer()
-  print "ANSWER"
-  print answer
-  raw_input("?")
+  print("ANSWER")
+  print(answer)
+  try:
+    raw_input("?")
+  except:
+    input("?") # py3
 
 #-----------------------------------------------------------------------
 def main(args):
