@@ -42,7 +42,7 @@ def main(template, output):
   f.write(buf)
   f.close()
 
-  diff.sort()  
+  diff.sort()
   f = open(output + ".diff", "wb")
   f.write("# Original file created by 'CMiller Mutator Rep' was %s\n" % template)
   f.write("\n".join(diff))
@@ -50,7 +50,7 @@ def main(template, output):
 
 #-----------------------------------------------------------------------
 def usage():
-  print "Usage:", sys.argv[0], "<template> <output filename>"
+  print("Usage:", sys.argv[0], "<template> <output filename>")
 
 if __name__ == "__main__":
   if len(sys.argv) != 3:
